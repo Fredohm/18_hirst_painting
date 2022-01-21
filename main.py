@@ -1,12 +1,5 @@
-import colorgram
 from turtle import Turtle, Screen
 from random import choice
-
-# selected_colors = colorgram.extract('hirst-white-paper.jpg', 30)
-# rgb_tuples = []
-# for selected_color in selected_colors:
-#     rgb_tuples.append(tuple(selected_color.rgb))
-# print(rgb_tuples)
 
 color_list = [(61, 48, 62), (221, 173, 192), (96, 104, 168), (141, 169, 165), (185, 96, 80), (170, 189, 221)]
 
@@ -14,25 +7,14 @@ color_list = [(61, 48, 62), (221, 173, 192), (96, 104, 168), (141, 169, 165), (1
 def set_initial_position():
     turtle.hideturtle()
     turtle.penup()
-    turtle.setheading(180)
-    turtle.forward(360)
-    turtle.setheading(270)
-    turtle.forward(380)
+    turtle.setheading(225)
+    turtle.forward(500)
 
 
-def draw_point():
-    turtle.begin_fill()
-    turtle.circle(20)
-    turtle.end_fill()
-
-
-def draw_line_of_points():
+def draw_line_of_dots():
     for _ in range(10):
         turtle.setheading(0)
-        turtle.pendown()
-        turtle.color(choice(color_list))
-        draw_point()
-        turtle.penup()
+        turtle.dot(30, choice(color_list))
         turtle.forward(80)
 
 
@@ -42,7 +24,6 @@ def go_to_next_line():
     turtle.setheading(90)
     turtle.forward(80)
     turtle.setheading(0)
-    print(turtle.pos())
 
 
 turtle = Turtle()
@@ -52,7 +33,7 @@ screen.colormode(255)
 
 set_initial_position()
 for _ in range(10):
-    draw_line_of_points()
+    draw_line_of_dots()
     go_to_next_line()
 
 screen.exitonclick()
